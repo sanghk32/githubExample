@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자기소개</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #f7f5f2;
+        --ink: #1a1a18;
+        --muted: #888880;
+        --accent: #c8a96e;
+        --line: #e0ddd8;
+      }
+
+      html,
+      body {
+        height: 100%;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: 'Noto Serif KR', serif;
+      }
+
+      /* 배경 노이즈 텍스처 */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        background-size: 180px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* 레이아웃 */
+      .page {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* 상단 */
+      header {
+        padding: 3rem 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        animation: fadeDown 0.8s ease both;
+      }
+
+      .logo {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+
+      .year {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      /* 메인 */
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5rem 0;
+      }
+
+      .tag {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 2.2rem;
+        animation: fadeUp 0.8s 0.1s ease both;
+      }
+
+      .name {
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        font-weight: 300;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        margin-bottom: 2.8rem;
+        animation: fadeUp 0.8s 0.2s ease both;
+      }
+
+      .name span {
+        display: block;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .divider {
+        width: 3rem;
+        height: 1px;
+        background: var(--accent);
+        margin-bottom: 2.2rem;
+        animation: expandX 0.8s 0.4s ease both;
+      }
+
+      .bio {
+        font-size: 1.05rem;
+        font-weight: 300;
+        line-height: 1.85;
+        color: #4a4a46;
+        max-width: 480px;
+        animation: fadeUp 0.8s 0.5s ease both;
+      }
+
+      /* 하단 */
+      footer {
+        padding: 2rem 0 3rem;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: fadeUp 0.8s 0.7s ease both;
+      }
+
+      .footer-label {
+        font-family: 'DM Mono', monospace;
+        font-size: 0.72rem;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+      }
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        animation: pulse 2.5s ease-in-out infinite;
+      }
+
+      /* 애니메이션 */
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes expandX {
+        from {
+          width: 0;
+          opacity: 0;
+        }
+        to {
+          width: 3rem;
+          opacity: 1;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(0.7);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <span class="logo">Portfolio</span>
+        <span class="year">2026</span>
+      </header>
+
+      <main>
+        <p class="tag">안녕하세요</p>
+
+        <h1 class="name">
+          저는<br />
+          <span>김상학</span>
+          입니다.
+        </h1>
+
+        <div class="divider"></div>
+
+        <p class="bio">
+          KB its your life 에서 공부하고 있는 예비 개발자입니다.<br />
+          꾸준히 성장하고, 함께 일하고 싶은 개발자가 되는 것이 목표입니다.
+        </p>
+      </main>
+
+      <footer>
+        <span class="footer-label">기술을 배우는 중 · 성장하는 중</span>
+        <div class="dot"></div>
+      </footer>
+    </div>
+  </body>
+</html>
